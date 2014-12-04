@@ -1,0 +1,39 @@
+<%include header%>
+    <div class="body_bg">
+      <img src="/images/DSC_0272.JPG">
+    </div>
+  	<div class="container">
+  		<%include cat%>
+  		<div class="content">
+  			<div class="con_list">
+          <% if(pagelist.length!=0) {%>
+            <% pagelist.forEach(function(page,index){ %>
+              <div class="one_block">
+                <div class="page_header">
+                  <a href="/page/<%=page.urltitle%>" class="page_name"><%=page.title%></a>
+                  <div class="page_tags">
+                    <% if(page.tags.length!=0) {%>
+                      <% page.tags.forEach(function(tag,index){ %>
+                        <a href="/tags/<%=tag%>"><%=tag%></a>
+                      <% }); %>
+                    <% } %>
+                  </div>
+                  <span class="page_time"><%=page.date%></span>
+                  <div class="clear"></div>
+                </div>
+                <div class="page_dec">
+                  <%-page.shortcontent%>
+                  <div class="page_down"></div>
+                </div>
+              </div>
+            <% }); %>
+          <% } %>
+  				
+  			</div>
+        <%include pagebread %>
+  		</div>
+  		<%include mood%>
+  		<div class="clear"></div>
+  	</div>
+    <script type="text/javascript" src="/javascripts/business/index/index.js"></script>
+<%include footer%>
